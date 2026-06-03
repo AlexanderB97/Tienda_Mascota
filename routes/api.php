@@ -3,7 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ArticuloController;
 use App\Http\Controllers\Api\CategoriaController;
 use App\Http\Controllers\Api\AuthController;
-
+use App\Models\Provincia;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/ping', function () {
@@ -17,5 +17,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     
     });
+
+    Route::get('/provincias', function () { return Provincia::all(); });
 
 ?>
